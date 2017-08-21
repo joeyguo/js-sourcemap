@@ -1,6 +1,16 @@
 # js-sourcemap
 
-js sourcemap generator and consumer
+js-sourcemap generator and consumer
+
+## Install
+
+```sh
+npm install js-sourcemap
+```
+
+or use CDN
+
+- https://unpkg.com/js-sourcemap/dist/js-sourcemap.min.js
 
 ## Usage
 
@@ -25,13 +35,13 @@ import { consumer } from 'js-sourcemap';
 
 var smConsumer = consumer(sourcemap);
 
-// get generated loc by origin position
+// get generated loc by original position
 var loc = smConsumer.getGenerated({
     line: lineNum,
     column: columnNum
 })
 
-// get origin loc by generated position
+// get original loc by generated position
 var loc2 = smConsumer.getOriginal({
     line: lineNum2,
     column: columnNum2
