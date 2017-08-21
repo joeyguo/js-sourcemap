@@ -27,12 +27,17 @@ let config = {
 
 if(ENV === 'dist'){
   config.format = 'umd';
-  config.dest = 'dist/js-sourcemap.min.js';
-  config.plugins.push(uglify(),licensePlugin);
+  config.dest = 'dist/js-sourcemap.js';
+  config.plugins.push(licensePlugin);
 } else if(ENV === 'es') {
   config.format = 'es';
   config.dest = 'dist/js-sourcemap.es.js';
   config.plugins.push(licensePlugin);
+} else if(ENV === 'min') {
+  config.format = 'umd';
+  config.dest = 'dist/js-sourcemap.min.js';
+  config.plugins.push(uglify(),licensePlugin);
 }
+
 
 export default config
