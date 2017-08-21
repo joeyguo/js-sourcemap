@@ -1,0 +1,38 @@
+import babel from 'rollup-plugin-babel';
+import babelrc from 'babelrc-rollup';
+import uglify from 'rollup-plugin-uglify';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
+const license = require('rollup-plugin-license');
+const pkg = require('./package.json');
+const ENV = process.env.npm_lifecycle_event;
+
+let licensePlugin =  license({
+  banner: " "+ pkg.name +" v"+ pkg.version +" By "+ pkg.author +" \r\n HomePage: "+ pkg.homepage +"\r\n "+ pkg.license +" Licensed."
+});
+
+let config = {
+  entry: 'src/index.js',
+  moduleName:'js_sourcemap',
+  plugins: [
+    resolve({
+      jsnext: true,
+      main: true,
+      browser: true,
+    }),
+    babel(babelrc()),
+    commonjs(),
+  ],
+};
+
+if(ENV === 'dist'){
+  config.format = 'umd';
+  config.dest = 'dist/js-sourcemap.min.js';
+  config.plugins.push(uglify(),licensePlugin);
+} else if(ENV === 'es') {
+  config.format = 'es';
+  config.dest = 'dist/js-sourcemap.es.js';
+  config.plugins.push(licensePlugin);
+}
+
+export default config
