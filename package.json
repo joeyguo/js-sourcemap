@@ -1,12 +1,14 @@
 {
   "name": "js-sourcemap",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "sourcemap for javascript",
   "main": "dist/js-sourcemap.js",
   "module": "dist/js-sourcemap.es.js",
   "scripts": {
+    "build": "npm run dist&npm run es&npm run min",
     "dist": "rollup -c",
-    "es": "rollup -c"
+    "es": "rollup -c",
+    "min": "rollup -c"
   },
   "keywords": [
     "sourcemap",
