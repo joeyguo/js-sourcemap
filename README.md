@@ -18,10 +18,12 @@ or use CDN
 
 ```js
 import { generator } from 'js-sourcemap';
+// use cdn, window.js_sourcemap.generator
 
-// use js-beautify
-// var dist = beautify(src);
-// ...
+var src = `function test(){console.log("js-sourcemap")};`;
+var dist = `function test(){
+    console.log('js-sourcemap')
+}`
 
 var sourcemap = generator(src, dist);
 
@@ -32,6 +34,7 @@ console.log(sourcemap);
 
 ```js
 import { consumer } from 'js-sourcemap';
+// use cdn, window.js_sourcemap.consumer
 
 var smConsumer = consumer(sourcemap);
 
@@ -47,3 +50,8 @@ var loc2 = smConsumer.getOriginal({
     column: columnNum2
 })
 ```
+
+### Thanks to 
+
+- acorn
+- source-map

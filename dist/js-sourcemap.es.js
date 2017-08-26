@@ -1,5 +1,5 @@
 /**
- * js-sourcemap v0.0.4 By joeyguo
+ * js-sourcemap v0.0.5 By joeyguo
  * HomePage: https://github.com/joeyguo/js-sourcemap
  * MIT Licensed.
  */
