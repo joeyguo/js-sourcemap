@@ -1,6 +1,6 @@
 {
   "name": "js-sourcemap",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "sourcemap for javascript",
   "main": "dist/js-sourcemap.js",
   "module": "dist/js-sourcemap.es.js",
