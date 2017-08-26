@@ -39,5 +39,4 @@ if(ENV === 'dist'){
   config.plugins.push(uglify(),licensePlugin);
 }
 
-
 export default config
